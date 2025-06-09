@@ -1,362 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Matheus & Ana</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <meta charset="UTF-8" />
+  <title>Bem-vindos - Matheus & Ana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
- body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: white;
-  text-align: center;
-  padding-top: 80px;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6b81, #f73d4a);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
 
-/* HEADER FIXO */
-header {
-  background-color: #000;
-  padding: 20px;
-  font-size: 32px;
-  color: red;
-  font-family: 'Great Vibes', cursive;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-}
+    .container {
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
 
-/* CORAÇÕES */
-.heart-container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
-}
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.heart {
-  position: absolute;
-  color: red;
-  font-size: 24px;
-  animation: float 6s linear infinite;
-  opacity: 0.7;
-}
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh) scale(1);
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh) scale(1.5);
-    opacity: 0;
-  }
-}
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      color: #ffe6e6;
+    }
 
-.slideshow-container {
-  max-width: 100vw;
-  margin: 0 auto;
-  height: 60vh;
-  max-height: 600px;
-  border-radius: 10px;
-  overflow: hidden;
+    h3 {
+      margin-bottom: 15px;
+      color: #ffb3b3;
+    }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .info-list {
+      text-align: left;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #ffdede;
+    }
 
-.slide {
-  display: none; /* fica oculto até mostrar */
-  width: 100%;
-  height: 100%;
+    .info-list p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-  background-size: cover;
-  background-position: center;
-  color: white;
-  font-size: 3em;
+    .info-list p span {
+      font-size: 22px;
+      line-height: 1;
+    }
 
-  display: flex; /* para centralizar texto no slide */
-  align-items: center;
-  justify-content: center;
+    a.btn {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff6b81;
+      background-color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255, 107, 129, 0.6);
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  text-shadow: 2px 2px 4px #0c0c0c;
-  text-align: center;
-  padding: 20px;
-}
+    a.btn:hover {
+      background-color: #ff6b81;
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 107, 129, 0.9);
+    }
 
-/* TEXTOS */
-.text-box {
-  padding: 20px;
-  font-size: 18px;
-  max-width: 800px;
-  margin: auto;
-}
-
-/* GALERIA */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  max-width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* BOTÕES E FOOTER */
-audio {
-  display: none;
-}
-
-.light-theme {
-  background-color: #fff;
-  color: #111;
-}
-
-.dark-theme {
-  background-color: #111;
-  color: #fff;
-}
-
-.button-container {
-  margin: 60px 0;
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #ff6b81;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn.white {
-  background-color: white;
-  color: black;
-}
-
-.btn:hover {
-  background-color: #e6455e;
-}
-
-.btn.white:hover {
-  background-color: #ccc;
-}
-
-footer {
-  padding: 40px 20px;
-  font-size: 16px;
-  color: #aaa;
-}
+    /* Responsividade */
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 42px;
+      }
+      a.btn {
+        padding: 12px 30px;
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="heart-container" id="heartContainer"></div>
+  <div class="container" data-aos="fade-up">
+    <h1>Seja bem-vindo</h1>
+    <p>Esta é uma pagina de minha autoria feita em HTML.</p>
+    <p>Aqui você poderá interagir com o display, navegar entre as abas e acionar ferramentas especiais.</p>
 
-  <header>I Love You...❤️ </header>
-
-  <div class="slideshow-container">
-    <div class="slide" style="background-image: url('imagem9.jpg');">
-      Esta é uma homenagem minha
+    <h3>Como usar:</h3>
+    <div class="info-list">
+      <p><span>🎵</span><strong>Botão Música:</strong> Clique para tocar ou pausar a música de fundo.</p>
+      <p><span>🌓</span><strong>Botão Tema:</strong> Alterne entre tema claro e escuro para seu conforto visual.</p>
+      <p><span>↘️</span> Ambos ficam no canto inferior direito da tela.</p>
     </div>
-    <div class="slide" style="background-image: url('imagem10.jpg');">
-      Para a pessoa que mudou minha vida
-    </div>
+
+    <a href="inicio.html" class="btn">Entrar</a>
   </div>
 
-  <div class="text-box">
-    <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #ff6b81;">Matheus & Ana 💞</h1>
-    <h3>Juntos desde 15/12/2024<br></h3>
-    <p>  
-      ㅤ
-    </p>
-    <p>
-      Este é o dia da pessoa que eu mais amo nesse mundo. Se você está lendo isso, eu estou extremamente feliz, pois isso significa que você continua ao meu lado... Eu te amo.
-    </p>
-  </div>
-
-  <div class="button-container">
-    <a href="inicio.html" class="btn">&lt;&lt; VOLTAR</a>
-    <a href="galeria.html" class="btn white">GALERIA &gt;&gt;</a>
-  </div>
-
-  <!-- Botão de alternar tema -->
-  <button id="themeBtn" style="
-    position: fixed;
-    bottom: 80px;
-    right: max(10px, 1vw);
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 50px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 999;
-  ">🌓 Tema</button>
-
-  <!-- Botão de música -->
-  <button id="musicBtn" style="
-    position: fixed;
-    bottom: 20px;
-    right: max(10px, 1vw);
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 50px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 999;
-  ">🎵 Música</button>
-
-  <!-- Áudio de fundo -->
-  <audio loop id="bgAudio">
-    <source src="audio_output (online-audio-converter.com) (1).mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio HTML.
-  </audio>
-
-  <footer>
-    <p>Feito com amor por Matheus para Ana 💖</p>
-  </footer>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    const audio = document.getElementById("bgAudio");
-    const musicBtn = document.getElementById("musicBtn");
-    const themeBtn = document.getElementById("themeBtn");
-
-    const savedTime = localStorage.getItem('audioCurrentTime');
-    if (savedTime) {
-      audio.currentTime = parseFloat(savedTime);
-    }
-
-    let isPlaying = false;
-
-    musicBtn.addEventListener("click", () => {
-      if (!isPlaying) {
-        audio.play();
-        musicBtn.textContent = "⏸️ Pausar Música";
-      } else {
-        audio.pause();
-        musicBtn.textContent = "🎵 Música";
-      }
-      isPlaying = !isPlaying;
-    });
-
-    audio.addEventListener("timeupdate", () => {
-      localStorage.setItem("audioCurrentTime", audio.currentTime);
-    });
-
-    function updateThemeButtonText() {
-      if (document.body.classList.contains('light-theme')) {
-        themeBtn.textContent = "🌙 Tema Escuro";
-      } else {
-        themeBtn.textContent = "🌓 Tema Claro";
-      }
-    }
-
-    function toggleTheme() {
-      const body = document.body;
-      body.classList.toggle('light-theme');
-      body.classList.toggle('dark-theme');
-
-      if (body.classList.contains('light-theme')) {
-        localStorage.setItem('theme', 'light');
-      } else {
-        localStorage.setItem('theme', 'dark');
-      }
-      updateThemeButtonText();
-    }
-
-    themeBtn.addEventListener("click", toggleTheme);
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-      } else {
-        document.body.classList.add('dark-theme');
-      }
-      updateThemeButtonText();
-    });
-
-    function createHeart() {
-      const heart = document.createElement("span");
-      heart.classList.add("heart");
-
-      const hearts = ["❤️", "💖", "💘", "💝", "💕", "💗"];
-      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
-
-      heart.style.left = Math.random() * 95 + "vw";
-      heart.style.fontSize = 20 + Math.random() * 20 + "px";
-      heart.style.opacity = 0.5 + Math.random() * 0.5;
-      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
-
-      document.getElementById("heartContainer").appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
-    }
-
-    setInterval(createHeart, 500);
-
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-
-      slides[slideIndex - 1].style.display = "flex";
-      slides[slideIndex - 1].style.alignItems = "center";
-      slides[slideIndex - 1].style.justifyContent = "center";
-
-      setTimeout(showSlides, 10000);
-    }
-
-    showSlides();
   </script>
-
 </body>
 </html>
